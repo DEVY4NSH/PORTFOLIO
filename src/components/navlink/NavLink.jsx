@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 
-const navlink = ({link}) => {
+const Navlink = ({link}) => {
     const pathName = usePathname();
     
   return (
@@ -12,4 +12,4 @@ const navlink = ({link}) => {
   )
 }
 
-export default navlink
+export default Navlink
