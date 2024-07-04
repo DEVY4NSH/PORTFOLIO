@@ -8,34 +8,38 @@ const items = [
   {
     id: 1,
     color: "from-red-300 to-blue-300",
-    title: "React Commerce",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "",
-    link: "",
+    title: "Live Collaborative Code Editor",
+    desc: "Tech Stack: Socket.io, React.js, Node.js, Express.js, Vite.js, CSS, Render, Codemirror. Implemented a real-time code editing feature using WebSocket and Socket.io, enabling users to create collaborative rooms for enhanced learning and rapid doubt resolution.",
+    techStack: ["Socket.io", "React.js", "Node.js", "Express.js", "Vite.js", "CSS", "Render", "Codemirror"],
+    img: "/live-code-editor.png", // Example image path
+    link: "/live-code-editor-demo", // Example link
   },
   {
     id: 2,
     color: "from-blue-300 to-violet-300",
     title: "Next.js Medium Blog",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "",
-    link: "",
+    techStack: [],
+    img: "/nextjs-blog.png", // Example image path
+    link: "/nextjs-blog-demo", // Example link
   },
   {
     id: 3,
     color: "from-violet-300 to-purple-300",
     title: "Vanilla Book App",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "",
-    link: "",
+    techStack: [],
+    img: "/vanilla-book-app.png", // Example image path
+    link: "/vanilla-book-app-demo", // Example link
   },
   {
     id: 4,
     color: "from-purple-300 to-red-300",
     title: "Spotify Music App",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "",
-    link: "",
+    techStack: [],
+    img: "/spotify-app.png", // Example image path
+    link: "/spotify-app-demo", // Example link
   },
 ];
 
@@ -58,7 +62,6 @@ const PortfolioPage = () => {
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
             {items.map((item) => (
               <div
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
@@ -68,15 +71,28 @@ const PortfolioPage = () => {
                   <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-6xl">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-40 md:w-96 md:h-64 lg:w-[400px] lg:h-[300px] xl:w-[400px] xl:h-[300px]">
-                    <Image src={item.img} alt="" fill />
-                  </div>
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+                  {item.img && (
+                    <div className="relative w-80 h-40 md:w-96 md:h-64 lg:w-[400px] lg:h-[300px] xl:w-[400px] xl:h-[300px]">
+                      <Image src={item.img} alt="" layout="fill" objectFit="cover" />
+                    </div>
+                  )}
+                  <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {item.desc}
                   </p>
-                  <Link href={item.link} className="flex justify-end">
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-6 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">See Demo</button>
-                  </Link>
+                  {item.link && (
+                    <Link href={item.link}>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="p-2 text-sm md:p-4 md:text-md lg:p-6 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded"
+                      >
+                        See Demo
+                      </motion.button>
+                    </Link>
+                  )}
+                  <div className="text-sm">
+                    Tech Stack: {item.techStack.join(", ")}
+                  </div>
                 </div>
               </div>
             ))}
@@ -90,7 +106,7 @@ const PortfolioPage = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 8, ease: "linear", repeat: Infinity }}
             viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[500px] md:h-[500px] "
+            className="w-64 h-64 md:w-[500px] md:h-[500px]"
           >
             <defs>
               <path

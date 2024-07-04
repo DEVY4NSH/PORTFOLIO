@@ -9,7 +9,6 @@ const links = [
     {url: "/", title: "Home"},
     {url: "/about", title: "About"},
     {url: "/portfolio", title: "Portfolio"},
-    {url: "/contact", title: "Contact"},
 ];
 
 
@@ -85,22 +84,16 @@ const Navbar = () => {
         </div>
         {/* {Social Media Icons} */}
         <div className="hidden md:flex gap-4 w-1/3">
-            <Link href="/">
+            <Link href="https://github.com/DEVY4NSH">
                 <Image src="/github.png" alt="" width={24} height={24} />
             </Link>
-            <Link href="/">
-                <Image src="/dribbble.png" alt="" width={24} height={24} />
+            <Link href="mailto:divyanshsahu0816@gmail.com">
+                <Image src="/gmail.png" alt="" width={24} height={24} />
             </Link>
-            <Link href="/">
+            <Link href="https://www.instagram.com/div_shhhh/">
                 <Image src="/instagram.png" alt="" width={24} height={24} />
             </Link>
-            <Link href="/">
-                <Image src="/facebook.png" alt="" width={24} height={24} />
-            </Link>
-            <Link href="/">
-                <Image src="/pinterest.png" alt="" width={24} height={24} />
-            </Link>
-            <Link href="/">
+            <Link href="https://www.linkedin.com/in/divyansh-sahu-8ba7691a7/">
                 <Image src="/linkedin.png" alt="" width={24} height={24} />
             </Link>
         </div>
